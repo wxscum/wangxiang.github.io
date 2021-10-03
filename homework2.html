@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>运算器</title>
+		<script language="Javascript">	  
+            var strs = "";
+			function OnClick(obj) {
+				var str = obj.innerText;
+				var numInput = document.getElementById("numInput");
+				
+				//如果是=,清空原有显示的内容，以免附加上去。执行eval();得到结果。
+				if(str=="="){
+					numInput.value="";
+					str=eval(strs);
+					strs = "";
+					//strs = str+"";
+				}
+				//如果点击C的话，将所有内容清空。
+				if(str=="c"){
+					numInput.value = "";
+					strs="";
+					str="";
+				}
+				if(str=="+"||str=="-"||str=="*"||str=="/"){
+				    strs += str;
+					numInput.value = strs;
+				}
+				else{
+					strs += str;
+					numInput.value = strs;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<h1 align="center">计算器</h1>
+		<table border="1px" cellspacing="2" align="center" bgcolor="lightgray" bordercolor="white">
+
+			<tr>
+				<td colspan="3">
+					<input type="text" id="numInput" style="text-align: right;"/>
+				</td>
+			</tr>
+			<tr align="center"> 
+				<td onclick="OnClick(this)">c</td>
+				<td onclick="OnClick(this)">/</td>
+				<td onclick="OnClick(this)">*</td>
+				<td onclick="OnClick(this)">-</td>
+			</tr>
+			<tr  align="center">
+				<td onclick="OnClick(this)">7</td>
+				<td onclick="OnClick(this)">8</td>
+				<td onclick="OnClick(this)">9</td>
+				<td onclick="OnClick(this)" rowspan="2">+</td>
+			</tr>
+			<tr  align="center">
+				<td onclick="OnClick(this)">4</td>
+				<td onclick="OnClick(this)">5</td>
+				<td onclick="OnClick(this)">6</td>
+			</tr>
+			<tr  align="center">
+				<td onclick="OnClick(this)">1</td>
+				<td onclick="OnClick(this)">2</td>
+				<td onclick="OnClick(this)">3</td>
+				<td onclick="OnClick(this)" rowspan="2">=</td>
+			</tr>
+			<tr  align="center">
+				<td onclick="OnClick(this)">0</td>
+				<td onclick="OnClick(this)" colspan="2">.</td>
+			</tr>
+
+		</table>
+
+	</body>
+
+</html>
